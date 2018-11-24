@@ -91,3 +91,13 @@ class SimpleMFRC522:
       for i in range(0, 5):
           n = n * 256 + uid[i]
       return n
+    
+   def uid_to_hex(self, uid):
+      res = ''
+      HEXA = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F']
+      for i in range(0, 4):
+          reminder1 = uid[i] % 16
+          number = uid[i] // 16
+          reminder2 = number % 16
+          res = res + HEXA[reminder2] + HEXA[reminder1]
+      return res
